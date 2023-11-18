@@ -26,7 +26,7 @@ export default function UserList(props: Props) {
       {
           data.map((item, index) => {
             return (
-              <AccordionItem borderRadius={'10px'} marginTop={'10px'}>
+              <AccordionItem key={`user-accordion-${item.login}`} borderRadius={'10px'} marginTop={'10px'}>
                 {({isExpanded}) => (
                   <>
                     <h2>
@@ -54,11 +54,11 @@ export default function UserList(props: Props) {
                         {
                           repositories.map((repo) => {
                             return (
-                              <Box width={'90%'} marginTop={'10px'} borderRadius={'10px'} alignSelf={'flex-end'} borderWidth={'1px'} paddingX={'10px'}>
+                              <Box key={`repo-item-${repo.name}`} width={'90%'} marginTop={'10px'} borderRadius={'10px'} alignSelf={'flex-end'} borderWidth={'1px'} paddingX={'10px'}>
                                 <Flex borderBottomWidth={'1px'} paddingY={'5px'} justifyContent={'space-between'}>
                                   <Text fontWeight={'500'}>{repo?.name}</Text>
                                   <Flex alignItems={'center'} gap={'3px'}>
-                                    <Text fontSize={'10px'}>{item?.stargazers_count}</Text>
+                                    <Text fontSize={'10px'}>{repo?.stargazers_count}</Text>
                                     <CiStar/>
                                   </Flex>
                                 </Flex>
