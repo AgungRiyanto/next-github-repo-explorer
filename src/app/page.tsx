@@ -6,6 +6,7 @@ import {CiStar} from 'react-icons/ci'
 import { Octokit } from '@octokit/core';
 import { OctokitResponse } from '@octokit/types';
 import UserList from './components/UserList';
+import Link from 'next/link';
 
 const octokit = new Octokit({})
 
@@ -52,7 +53,7 @@ export default function Home() {
   }
 
   return (
-    <Container maxW='2xl' bg='white' centerContent>
+    <Container maxW='2xl' bg='white' centerContent minH={'100vh'}>
       <Box width={'100%'} padding='4' marginBottom={'10px'} bg='white' color='black' borderBottomWidth={'1px'}>
         <Center>
           <Text fontWeight={'bold'}>
@@ -72,6 +73,9 @@ export default function Home() {
         </Button>
       </form>
       <UserList data={data} isLoading={isLoadRepo} repositories={repositories} onClickItem={handleClickUser} />
+      <Box position={'absolute'} bottom={10}>
+        <Center>Made by <Link href='https://github.com/AgungRiyanto' target={'_blank'}><Text color={'green'}> AgungRiyanto</Text></Link></Center>
+      </Box>
     </Container>
   )
 }
