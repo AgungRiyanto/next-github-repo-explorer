@@ -42,7 +42,7 @@ export default function UserList(props: Props) {
                       >
                         <Flex flex={'1'} justifyContent={'space-between'}>
                           <Flex gap={'10px'} alignItems={'center'}>
-                            <Image src={item?.avatar_url} width={'20px'} height={'20px'} />
+                            <Image alt={item.login} src={item?.avatar_url} width={'20px'} height={'20px'} />
                             <Text>{item?.login}</Text>
                           </Flex>
                           <AccordionIcon />
